@@ -11,6 +11,7 @@ pipeline {
             image 'docker.io/manics/jenkins-pipeline-bumpversion-example'
         }
     }
+    agent any
     stages {
         stage('Build') {
             steps {
@@ -24,6 +25,7 @@ pipeline {
         }
 
         stage('Tag') {
+            agent { label 'python' }
             options {
                 timeout(time: 30, unit: 'MINUTES')
             }
