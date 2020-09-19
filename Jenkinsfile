@@ -19,7 +19,7 @@ pipeline {
                 timeout(time: 30, unit: 'MINUTES')
             }
             when {
-                expression { env.GIT_BRANCH == 'origin/master' }
+                expression { env.GIT_BRANCH == 'master' }
             }
             // input {
             //   message "Would you like to tag this repository?"
