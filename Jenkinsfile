@@ -1,12 +1,7 @@
 #!groovy
 
 pipeline {
-    agent {
-        // dockerfile isn't working, you must build and push docker image before
-        // running this pipeline
-
-    }
-
+    agent any
     stages {
         stage('Build') {
             steps {
