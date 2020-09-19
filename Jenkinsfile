@@ -6,7 +6,6 @@ pipeline {
         // running this pipeline
         docker {
             // Node label
-            label 'docker'
 
             image 'docker.io/manics/jenkins-pipeline-bumpversion-example'
         }
