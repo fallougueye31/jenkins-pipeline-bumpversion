@@ -34,13 +34,13 @@ pipeline {
             // }
             steps {
                 //unstash 'workspace'
-                withCredentials([sshUserPrivateKey(credentialsId: 'github-push', keyFileVariable: 'keyfile')]) {
-                    sh 'mkdir -p ~/.ssh && cp ${keyfile} ~/.ssh/id_rsa'
-                }
+                //withCredentials([sshUserPrivateKey(credentialsId: 'github-push', keyFileVariable: 'keyfile')]) {
+                //  sh 'mkdir -p ~/.ssh && cp ${keyfile} ~/.ssh/id_rsa'
+                // }
                 sh 'git remote -v'
                 sh 'git show-ref'
                 // Change https:// to SSH URL so we can push with a deploy key
-                sh 'git remote set-url origin `git remote get-url origin | sed -re "s%.+/([^/]+)/([^/]+)$%git@github.com:\\1/\\2%"`'
+                // sh 'git remote set-url origin `git remote get-url origin | sed -re "s%.+/([^/]+)/([^/]+)$%git@github.com:\\1/\\2%"`'
                 //sh 'bumpversion ${BUMP}'
                 sh 'bumpversion minor'
                 sh 'git log -p -2'
