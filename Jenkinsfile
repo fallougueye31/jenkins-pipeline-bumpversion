@@ -1,7 +1,16 @@
 #!groovy
 
 pipeline {
-    agent any
+    agent {
+        // dockerfile isn't working, you must build and push docker image before
+        // running this pipeline
+        docker {
+            // Node label
+            label 'docker'
+
+            image 'docker.io/manics/jenkins-pipeline-bumpversion-example'
+        }
+    }
     stages {
         stage('Build') {
             steps {
